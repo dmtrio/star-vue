@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'main',
       component: Main
+    },
+    {
+      path: '/elpaso',
+      name: 'main',
+      component: Main
     }
   ]
 })
