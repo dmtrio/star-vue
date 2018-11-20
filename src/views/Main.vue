@@ -1,13 +1,39 @@
 <template>
   <div class="main">
     <!-- LawnStarter -->
-    <Search></Search>
+    <Search 
+      @updateData="setData" 
+      @searching="searching"
+    ></Search>
+    <Results 
+      :results="results"
+      :searching="searching"
+    ></Results>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'main'
+  name: 'main',
+  data() {
+    return {
+      data: null,
+      results: null,
+      searching: false,
+    }
+  },
+  methods: {
+    setData (data) {
+      // console.log('called', data)
+      this.searching = false
+      this.data = data
+      this.results = data.results
+    },
+    searching () {
+      // console.log('called', data)
+      this.searching = true
+    }
+  }
 }
 </script>
 

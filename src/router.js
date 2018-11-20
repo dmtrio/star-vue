@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from './views/Main.vue'
+import Details from './views/Details.vue'
 
 Vue.use(Router)
 
@@ -12,9 +13,9 @@ export default new Router({
       component: Main
     },
     {
-      path: '/elpaso',
-      name: 'main',
-      component: Main
+      path: '/*',
+      name: 'detail',
+      component: Details
     }
   ]
 })
