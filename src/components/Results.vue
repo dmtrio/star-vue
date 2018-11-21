@@ -5,9 +5,11 @@
       <p>searching</p>
     </div>
     <div v-else-if="hasResults">
-      <div v-for="result in results">
-        <div>{{result.name}}</div>
-        <router-link :to="{ path: 'details', query: { name: result.name }}" @test="result"><button>See Details</button></router-link>
+      <div v-for="result in data.results">
+        <div>{{result.name}}{{result.title}}</div>
+        <router-link :to="{ name: 'details', query: { type: data.resultsType, name: result.name, title: result.title }, params: {result: result, type: data.resultsType}}">
+          <button>See Details</button>
+        </router-link>
       </div>
     </div>
     <div v-else> 
@@ -20,14 +22,14 @@
 <script>
 export default {
   name: 'results',
-  props: ['results', 'searching'],
+  props: ['data', 'searching'],
   data() {
     return {
     }
   },
   computed: {
     hasResults () {
-      return this.results
+      return this.data && this.data.results
     },
     isSearching () {
       return this.searching

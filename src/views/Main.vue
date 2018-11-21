@@ -1,12 +1,12 @@
 <template>
   <div class="main">
     <Search 
-      @updateData="updateData" 
+      @updateData="setDetail" 
       @updateSearching="setSearching"
     ></Search>
     <div class="spacer--30-30"></div>
     <Results 
-      :results="results"
+      :data="data"
       :searching="searching"
     ></Results>
   </div>
@@ -15,15 +15,18 @@
 <script>
 export default {
   name: 'main',
-  props: ['results', 'searching'],
+  props: [],
   data() {
     return {
       searching: false,
+      data: null,
     }
   },
   methods: {
-    updateData (data) {
-      this.$emit('updateData', data)
+    setDetail (data) {
+      // console.log('called', data)
+      this.searching = false
+      this.data = data
     },
     setSearching () {
       this.searching = true

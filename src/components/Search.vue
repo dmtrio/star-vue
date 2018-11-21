@@ -4,8 +4,8 @@
     <div>
       <input type="radio" id="people" name="searchtype" value="people" v-model="searchType" checked="checked">
       <label for="people">People</label>
-      <input type="radio" id="movies" name="searchtype" value="movies" v-model="searchType">
-      <label for="movies">Movies</label>
+      <input type="radio" id="films" name="searchtype" value="films" v-model="searchType">
+      <label for="films">Movies</label>
     </div>
     <input :placeholder="placeholder" v-model="searchQuery" type="text" id="searchquery" name="search" required>
     <button v-on:click="onSumbit" type="submit" class="button_submit" value="" :disabled="submitEnabled" >SEARCH</button> 
@@ -37,8 +37,17 @@ export default {
   methods: {
     onSumbit (e) {
       this.$emit('updateSearching')
-       apiService.init().search(this.searchType, this.searchQuery)
-       .then((data) => {this.$emit('updateData', data)});  
+      const type = this.searchType
+      const query = this.searchQuery
+      apiService.init().search(type, this.searchQuery)
+        .then((data) => {
+          const queryResponse = {
+            query: query,
+            resultsType: type,
+            results: data.results
+          }
+          this.$emit('updateData', queryResponse)
+        });  
     }
   }
 }

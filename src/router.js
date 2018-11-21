@@ -14,8 +14,9 @@ export default new Router({
     },
     {
       path: '/details',
-      name: 'detail',
-      component: Details
+      name: 'details',
+      component: Details,
+      props: true
     }
   ]
 })

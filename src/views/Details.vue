@@ -1,9 +1,10 @@
 <template>
   <div class="details">
-    <div> 
-      {{results.name}}
-      <p>There are zero matches.</p>
-      <p>Use the form to search for People or Movies</p>
+    <div v-if="isPersonType">
+      <PersonDetail :person="selection"></PersonDetail>
+    </div>
+    <div v-else-if="isFilmType">
+      <MovieDetail :film="selection"></MovieDetail>
     </div>
   </div>
 </template>
@@ -12,39 +13,36 @@
 import apiService from '../utils/apiService.js'
 export default {
   name: 'details',
-  props: ['reults'], 
+  props: ['result', 'type'],
   data() {
     return {
-      person: null
+      selection: this.result
     }
   },
   beforeMount() {
-      apiService.init().search('people', this.$route.query.person)
-      .then((data) => {this.person = data.results[0]});  
-      console.log(this.person)
+      const type = this.$route.query.type;
+      const query = {
+        films: this.$route.query.title,
+        person: this.$route.query.name
+      }
+      if (!this.selection) {
+        apiService.init().search(type, query[type])
+        .then((data) => {this.selection = data.results[0]});  
+      }
   },
   computed: {
+    isPersonType () {
+      return this.$route.query.type === 'people' && this.selection;
+    },
+    isFilmType () {
+      return this.$route.query.type === 'films' && this.selection;
+    }
   },
   methods: {
-    getData () {
-
-    }
   }
 }
 </script>
 
 <style>
-.search {
-  display: flex;
-  flex-direction: column;
-  height: 230px;
-  width: 410px;
-}
-.search h4 {
 
-}
-
-.search div {
-  
-}
 </style>
