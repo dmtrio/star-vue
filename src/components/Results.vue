@@ -1,11 +1,13 @@
 <template>
-  <div class="results">
+  <div class="results shadow-standard box-standard">
+    <h4 class="title"> Results</h4>
     <div v-if="isSearching">
       <p>searching</p>
     </div>
     <div v-else-if="hasResults">
       <div v-for="result in results">
-        {{result.name}}
+        <div>{{result.name}}</div>
+        <button>See Details</button>
       </div>
     </div>
     <div v-else> 
@@ -35,11 +37,13 @@ export default {
 </script>
 
 <style>
-.search {
+.results {
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  height: 230px;
-  width: 410px;
+  min-height: 500px;
+  width: 522px;
+  padding: 30px
 }
 .search h4 {
 

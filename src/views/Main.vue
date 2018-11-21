@@ -3,7 +3,7 @@
     <!-- LawnStarter -->
     <Search 
       @updateData="setData" 
-      @searching="searching"
+      @updateSearching="setSearching"
     ></Search>
     <Results 
       :results="results"
@@ -29,8 +29,8 @@ export default {
       this.data = data
       this.results = data.results
     },
-    searching () {
-      // console.log('called', data)
+    setSearching () {
+      console.log('searching')
       this.searching = true
     }
   }
@@ -39,11 +39,15 @@ export default {
 
 <style>
 .main {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
+
+  display: flex;
+  flex-direction: row;
+
 }
 </style>
