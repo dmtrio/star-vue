@@ -1,11 +1,11 @@
 <template>
   <div class="search_and_results">
-    <Search 
-      @updateData="setDetail" 
+    <Search
+      @updateData="setDetail"
       @updateSearching="setSearching"
     ></Search>
     <div class="spacer--30-30"></div>
-    <Results 
+    <Results
       :data="data"
       :searching="searching"
     ></Results>
@@ -16,10 +16,10 @@
 export default {
   name: 'searchAndResults',
   props: [],
-  data() {
+  data () {
     return {
       searching: false,
-      data: null,
+      data: null
     }
   },
   methods: {

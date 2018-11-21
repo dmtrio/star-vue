@@ -28,7 +28,7 @@
 <script>
 export default {
   name: 'personDetails',
-  props: ['person'], 
+  props: ['person'],
   computed: {
   },
   methods: {

@@ -8,7 +8,7 @@
       <label for="films">Movies</label>
     </div>
     <input :placeholder="placeholder" v-model="searchQuery" type="text" id="searchquery" name="search" required>
-    <button v-on:click="onSumbit" type="submit" class="button_submit" value="" :disabled="submitEnabled" >SEARCH</button> 
+    <button v-on:click="onSumbit" type="submit" class="button_submit" value="" :disabled="submitEnabled" >SEARCH</button>
   </div>
 </template>
 
@@ -16,21 +16,21 @@
 import apiService from '../utils/apiService.js'
 export default {
   name: 'search',
-  data() {
+  data () {
     return {
       searchType: 'people',
-      searchQuery: '',
+      searchQuery: ''
     }
   },
   computed: {
-    placeholder() {
+    placeholder () {
       const placeholderText = {
-        people: "this is for peeps",
-        movies: "this is for movies",
-      } 
+        people: 'this is for peeps',
+        movies: 'this is for movies'
+      }
       return placeholderText[this.searchType]
     },
-    submitEnabled() {
+    submitEnabled () {
       return this.searchQuery.length > 0 ? null : 'disabled'
     }
   },
@@ -47,7 +47,7 @@ export default {
             results: data.results
           }
           this.$emit('updateData', queryResponse)
-        });  
+        })
     }
   }
 }
@@ -87,8 +87,8 @@ label {
   box-shadow: inset 0 1px 3px 0 rgba(132, 132, 132, 0.75);
   background-color: #ffffff;
 }
- 
-input::placeholder { 
+
+input::placeholder {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: bold;

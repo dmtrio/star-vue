@@ -13,30 +13,30 @@ import apiService from '../utils/apiService.js'
 export default {
   name: 'details',
   props: ['result', 'type'],
-  data() {
+  data () {
     return {
       selection: this.result
     }
   },
-  beforeMount() {
-      const type = this.$route.query.type;
-      const query = {
-        films: this.$route.query.title,
-        people: this.$route.query.name
-      }
-      if (!this.selection) {
-        apiService.init().search(type, query[type])
-        .then((data) => {this.selection = data.results[0]});  
-      }
+  beforeMount () {
+    const type = this.$route.query.type
+    const query = {
+      films: this.$route.query.title,
+      people: this.$route.query.name
+    }
+    if (!this.selection) {
+      apiService.init().search(type, query[type])
+        .then((data) => { this.selection = data.results[0] })
+    }
   },
   computed: {
     isPersonType () {
-      return this.$route.query.type === 'people' && this.selection;
+      return this.$route.query.type === 'people' && this.selection
     },
     isFilmType () {
-      return this.$route.query.type === 'films' && this.selection;
+      return this.$route.query.type === 'films' && this.selection
     }
-  },
+  }
 }
 </script>
 

@@ -12,7 +12,7 @@
         </router-link>
       </div>
     </div>
-    <div v-else> 
+    <div v-else>
       <p>There are zero matches.</p>
       <p>Use the form to search for People or Movies</p>
     </div>
@@ -23,7 +23,7 @@
 export default {
   name: 'results',
   props: ['data', 'searching'],
-  data() {
+  data () {
     return {
     }
   },
@@ -52,6 +52,6 @@ export default {
 }
 
 .search div {
-  
+
 }
 </style>
