@@ -69,7 +69,7 @@ label {
 }
 
 #searchquery {
-  height: 40px;
+  height: 20px;
   padding: 10px;
 
   border: 1px solid #dadada;
@@ -94,6 +94,11 @@ input::placeholder {
   height: 34px;
   width: 350px;
   border-radius: 20px;
-  margin-bottom: 0px
+  margin-bottom: 0px;
+  background-color: #0ab463;
+
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
 }
 </style>

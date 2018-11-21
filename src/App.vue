@@ -1,11 +1,33 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view
+      @updateData="setData" 
+      :results="results"
+    />
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      data: null,
+      results: null,
+    }
+  },
+  methods: {
+    setData (data) {
+      // console.log('called', data)
+      this.searching = false
+      this.data = data
+      this.results = data.results
+    },
+  }
+}
+</script>
 
+<style>
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body {

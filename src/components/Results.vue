@@ -7,7 +7,7 @@
     <div v-else-if="hasResults">
       <div v-for="result in results">
         <div>{{result.name}}</div>
-        <button>See Details</button>
+        <router-link :to="{ path: 'details', query: { name: result.name }}" @test="result"><button>See Details</button></router-link>
       </div>
     </div>
     <div v-else> 

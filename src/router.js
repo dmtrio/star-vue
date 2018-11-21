@@ -13,12 +13,7 @@ export default new Router({
       component: Main
     },
     {
-      path: '/people/:person',
-      name: 'detail',
-      component: Details
-    },
-    {
-      path: '/movies/:movie',
+      path: '/details',
       name: 'detail',
       component: Details
     }

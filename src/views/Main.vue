@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <!-- LawnStarter -->
     <Search 
-      @updateData="setData" 
+      @updateData="updateData" 
       @updateSearching="setSearching"
     ></Search>
+    <div class="spacer--30-30"></div>
     <Results 
       :results="results"
       :searching="searching"
@@ -15,22 +15,17 @@
 <script>
 export default {
   name: 'main',
+  props: ['results', 'searching'],
   data() {
     return {
-      data: null,
-      results: null,
       searching: false,
     }
   },
   methods: {
-    setData (data) {
-      // console.log('called', data)
-      this.searching = false
-      this.data = data
-      this.results = data.results
+    updateData (data) {
+      this.$emit('updateData', data)
     },
     setSearching () {
-      console.log('searching')
       this.searching = true
     }
   }
@@ -39,15 +34,17 @@ export default {
 
 <style>
 .main {
-  /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
   text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
 
+.spacer--30-30 {
+  width: 30px;
+  height: 30px;
 }
 </style>
