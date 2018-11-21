@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="search_and_results">
     <Search 
       @updateData="setDetail" 
       @updateSearching="setSearching"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'main',
+  name: 'searchAndResults',
   props: [],
   data() {
     return {
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style>
-.main {
+.search_and_results {
   text-align: left;
   color: #2c3e50;
   margin-top: 60px;

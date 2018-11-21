@@ -110,4 +110,8 @@ input::placeholder {
   font-weight: bold;
   color: #ffffff;
 }
+
+.button_submit:disabled {
+  background-color: #c4c4c4;
+}
 </style>

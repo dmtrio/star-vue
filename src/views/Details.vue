@@ -1,11 +1,10 @@
 <template>
   <div class="details">
-    <div v-if="isPersonType">
-      <PersonDetail :person="selection"></PersonDetail>
-    </div>
-    <div v-else-if="isFilmType">
-      <MovieDetail :film="selection"></MovieDetail>
-    </div>
+    <PersonDetail v-if="isPersonType" :person="selection"></PersonDetail>
+    <FilmDetail v-else-if="isFilmType" :film="selection"></FilmDetail>
+    <router-link :to="{ name: 'searchAndResults' }">
+      <button>Back to Search</button>
+    </router-link>
   </div>
 </template>
 
@@ -23,7 +22,7 @@ export default {
       const type = this.$route.query.type;
       const query = {
         films: this.$route.query.title,
-        person: this.$route.query.name
+        people: this.$route.query.name
       }
       if (!this.selection) {
         apiService.init().search(type, query[type])
@@ -38,8 +37,6 @@ export default {
       return this.$route.query.type === 'films' && this.selection;
     }
   },
-  methods: {
-  }
 }
 </script>
 

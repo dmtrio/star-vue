@@ -17,12 +17,11 @@
     <div>
       <h4>Movies</h4>
       <div>
-        <p v-for="film in person.films">
+        <p v-for="(film, index) in person.films" :key="index">
           {{film}}
         </p>
       </div>
     </div>
-    <button>Back to Search</button>
   </div>
 </template>
 

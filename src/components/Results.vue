@@ -5,7 +5,7 @@
       <p>searching</p>
     </div>
     <div v-else-if="hasResults">
-      <div v-for="result in data.results">
+      <div v-for="(result, index) in data.results" :key="index">
         <div>{{result.name}}{{result.title}}</div>
         <router-link :to="{ name: 'details', query: { type: data.resultsType, name: result.name, title: result.title }, params: {result: result, type: data.resultsType}}">
           <button>See Details</button>

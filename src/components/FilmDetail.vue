@@ -17,7 +17,6 @@
         </p> -->
       </div>
     </div>
-    <button>Back to Search</button>
   </div>
 </template>
 

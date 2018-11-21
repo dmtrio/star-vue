@@ -1,5 +1,3 @@
-import { reject } from "rsvp";
-
 let apiService
 export default class ApiService {
   constructor () {
@@ -12,10 +10,6 @@ export default class ApiService {
     }
     return apiService
   }
-  // methods
-  // create basic fetch 
-  // will create a new ApiService that will return an object that can search for
-
   // returns a promise to be resolved
   apiCall (url) {
     return fetch(url, {
